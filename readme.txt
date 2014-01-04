@@ -44,16 +44,16 @@ The Facebook Downloader plugin create posts for your Wordpress websites where yo
 **Yes, this plugin works really fine with WordPress 3.8!
 It is also compatible for older Wordpress versions upto 3.0.1.**
 
-= Is it possible for the users by any means to download the file without sharing on Facebook? ==
+= Is it possible for the users by any means to download the file without sharing on Facebook? =
 **No, the download is only possible when the viewer shares the download link on Facebook.**
 
-=Can I share any pdf or zip file?
+= Can I share any pdf or zip file? =
 **Yes, the plugin allows you to share any format of file you want**
 
-= Is the plugin compatible with my theme?
+= Is the plugin compatible with my theme? =
 **Yes, the plugin is completely compatible with all the Wordpress themes!**
 
-= Can I add title and description to the link that will be posted on Facebook?
+= Can I add title and description to the link that will be posted on Facebook? =
 **Yes, you can add title and a brief description to the link to be posted on Facebook wall of the user.**
 
 ==Screenshots===
@@ -74,8 +74,8 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 ==Changelog==
 
-=1=
-* Initial release
+= 1 =
+* Initial release *
 
 
 ==Upgrade Notice==

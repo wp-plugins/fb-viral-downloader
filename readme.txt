@@ -78,10 +78,10 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 ==Changelog==
 
 = 1 =
-* Initial release *
+* Initial release
 
 = 1.0.1 =
-* Fixed W3 Total Cache compatibility issue. * 
+* Fixed W3 Total Cache compatibility issue. 
 
  
 
@@ -89,7 +89,7 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 =1.0.1=
 
-* Fixed W3 Total Cache compatibility issue. * 
+* Fixed W3 Total Cache compatibility issue.  
 
 
 

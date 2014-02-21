@@ -1,10 +1,10 @@
 === FB Viral Downloader ===
 Contributors: DualCube
 Donate link: http://dualcube.com/
-Tags: content viral, download, Facebook, file, sharing, social share, viral
+Tags: file upload, pdf upload, zip upload, mp3 upload, share to unlock, like to unlock, content viral, download, Facebook, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, like gating
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

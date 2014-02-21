@@ -24,7 +24,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 
 			$this->plugin_url = plugins_url( basename( plugin_dir_path(__FILE__) ), basename( __FILE__ ) );
 			$this->plugin_path = untrailingslashit( plugin_dir_path( __FILE__ ) );
-			$this->version = '1.0';
+			$this->version = '1.0.1';
 			$this->text_domain = 'dc_fb_viral_downloader';
 
 			add_action('init', array( &$this, 'init'));
@@ -220,7 +220,6 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 
 		public function frontend_scripts() {
 			$frontend_script_path 	= $this->plugin_url . '/assets/js/frontend/';
-			wp_enqueue_script( 'facebook-api', '//connect.facebook.net/en_US/all.js');
 			wp_enqueue_script( 'viraldownloader-js', $frontend_script_path . 'script.js', array( 'jquery' ), $this->version, true );
 			wp_localize_script( 'viraldownloader-js', 'viraldownloader_data', array('ajax_url' => admin_url( 'admin-ajax.php', 'relative' ), 'fb_client_id' => get_option('fbSocialClientId')) );
 		}

@@ -80,12 +80,16 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 = 1 =
 * Initial release *
 
+= 1.0.1 =
+* Fixed W3 Total Cache compatibility issue. * 
+
+ 
 
 ==Upgrade Notice==
 
-=1.0=
+=1.0.1=
 
-Just released into the wild!
+* Fixed W3 Total Cache compatibility issue. * 
 
 
 

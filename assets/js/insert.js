@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 		shortcode += $('#viraldownloaderDownlaodableSelect').val();
 		shortcode += ' ';
 		if($('#viraldownloaderLinkText').val() != '')
-			shortcode += 'text=' + $('#viraldownloaderLinkText').val();
+			shortcode += 'text="' + $('#viraldownloaderLinkText').val() + '"';
 		shortcode += ']';
 		tinyMCE.activeEditor.execCommand("mceInsertContent", false, shortcode);
 		tb_remove();

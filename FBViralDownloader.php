@@ -4,7 +4,7 @@ Plugin Name: FB Viral Downloader
 Plugin URI: http://dualcube.com/
 Description: This plugin enables viral marketing of your content via Facebook sharing for each and every download from your website. It is an effective tool to increase your viewership.
 Author: DualCube
-Version: 1.0.2
+Version: 1.1.0
 Author URI: http://dualcube.com/
 */
 
@@ -24,7 +24,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 
 			$this->plugin_url = plugins_url( basename( plugin_dir_path(__FILE__) ), basename( __FILE__ ) );
 			$this->plugin_path = untrailingslashit( plugin_dir_path( __FILE__ ) );
-			$this->version = '1.0.2';
+			$this->version = '1.1.0';
 			$this->text_domain = 'dc_fb_viral_downloader';
 
 			add_action('init', array( &$this, 'init'));
@@ -53,6 +53,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 			add_filter( 'mce_buttons',          array( &$this, 'filter_mce_buttons') );
 			add_filter( 'mce_external_plugins', array( &$this, 'filter_mce_external_plugins' ) );
 			add_action( 'admin_notices', array( &$this, 'show_admin_messages' ) );
+			add_action( 'wp_ajax_add_new_downloadable', array( &$this, 'add_new_downloadable_callback' ) );
 		}
 
 		public function register_post_types() {
@@ -82,7 +83,8 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 					'exclude_from_search' 	=> true,
 					'hierarchical' 			=> false, // Hierarchical causes memory issues - WP loads all records!
 					'supports' 				=> array( 'title', 'thumbnail'),
-					'show_in_nav_menus' 	=> true
+					'show_in_nav_menus' 	=> true,
+					'menu_icon' => 'dashicons-download'
 				)
 			);
 		}
@@ -243,26 +245,84 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 		public function output_vd_shortcode_selector() {
 			$posts = get_posts(array('posts_per_page' => -1, 'post_type' => 'downloadables', 'fields' => 'ids'));
 			if(empty($posts)) {
-				echo '<p>No Downloadables found</p>';
-				return;
+				$posts = array();
 			}
 			?>
-			<p>
-				<p>Select a downloadable</p>
-				<select id="viraldownloaderDownlaodableSelect" style="width: 100%" >
-					<?php foreach($posts as $post_id) { ?>
-						<option value="<?=$post_id ?>"><?php echo get_the_title($post_id); ?></option>
-					<?php } ?>
-				</select>
-			</p>
-			<p>
-				<p>Enter link Text</p>
-				<input type="text" id="viraldownloaderLinkText" style="width: 100%" />
-			</p>
-			<p>
-				<button class="button-primary" id="viraldownloaderInsertButton">Insert Link</button>
-			</p>
+			<style>
+				#TB_window {overflow: auto;}
+				#TB_ajaxContent {overflow: visible; width: 94% !important;}			
+				select#viraldownloaderDownlaodableSelect {padding: 2px;}
+			</style>
+			<table class="form-table" id="fb_viral_downloader_container">
+				<tr>
+					<th>Select a downloadable</th>
+					<td>
+						<select id="viraldownloaderDownlaodableSelect" >
+							<?php foreach($posts as $post_id) { ?>
+								<option value="<?=$post_id ?>"><?php echo get_the_title($post_id); ?></option>
+							<?php } ?>
+							<option value="add-new">--Add New--</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="hide add-new">
+					<th>Title</th>
+					<td><input class="title" type="text" /></td>
+				</tr>
+				<tr class="hide add-new">
+					<th>Url</th>
+					<td><input class="url" type="text" /></td>
+				</tr>
+				<tr class="hide add-new">
+					<th>Caption</th>
+					<td><input class="caption" type="text" /></td>
+				</tr>
+				<tr class="hide add-new">
+					<th>Description</th>
+					<td><input class="description" type="text" /></td>
+				</tr>
+				<tr class="hide add-new">
+					<th>File</th>
+					<td>
+						<button class="button-secondary upload file-upload">Upload</button>
+						<span>Or enter link</span>
+						<input class="file" type="text" />
+					</td>
+				</tr>
+				<tr class="hide add-new">
+					<th>Image</th>
+					<td>
+						<button class="button-secondary upload image-upload">Upload</button>
+						<img src="" class="image-preview" width="30" height="30" />						
+						<input class="image" type="hidden" />
+					</td>
+				</tr>
+				<tr>
+					<th>Enter link Text</th>
+					<td><input type="text" id="viraldownloaderLinkText" /></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><button class="button-primary" id="viraldownloaderInsertButton">Insert Link</button></td>
+				</tr>
+			</table>
 			<?php
+		}
+
+		public function add_new_downloadable_callback() {
+			if(isset($_POST['title']) && isset($_POST['data'])) {
+				$post_id = wp_insert_post(array('post_title' => $_POST['title'], 'post_status' => 'publish', 'post_type' => 'downloadables'));
+				if(!is_wp_error($post_id)) {
+					if(!empty($_POST['featured_image']))
+						set_post_thumbnail($post_id, absint($_POST['featured_image']));
+					$metas = array('share_url', 'share_caption', 'share_description', 'share_file');
+					foreach($metas as $meta) {
+						if(!empty($_POST['data'][$meta])) update_post_meta($post_id, '_' . $meta, $_POST['data'][$meta]);
+					}
+					echo $post_id;
+				}
+			}
+			die;
 		}
 
 		public function show_admin_messages() {
@@ -270,6 +330,8 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 				echo '<div class="error"><p><strong>FB Viral Downloader issue:</strong> Please <a href="options-general.php?page=viraldownloader-options">update Facebook settings</a> to activate Viral download. Configure the Facebook settings <a href="options-general.php?page=viraldownloader-options">here</a>.</p></div>';
 			}
 		}
+
+ 
 
 	}
 

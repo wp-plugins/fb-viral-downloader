@@ -1,10 +1,10 @@
 === FB Viral Downloader ===
-Contributors: DualCube
+Contributors: Dualcube
 Donate link: http://dualcube.com/
 Tags: file upload, pdf upload, zip upload, mp3 upload, share to unlock, like to unlock, content viral, download, Facebook, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, file, mp3, pdf, upload, download, fb
 Requires at least: 3.0.1
-Tested up to: 3.8
-Stable tag: 1.0.2
+Tested up to: 3.8.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,8 @@ The Facebook Downloader plugin create posts for your Wordpress websites where yo
 4.**Share files of any format you want**
 
 5.**Simple and Easy to use**
+
+6.**Add shortcodes on the go from WP-Editor itself**
 
 
 ==Installation==
@@ -83,6 +85,8 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 = 1.0.2 =
 * Fixed broken link text.
 
+= 1.1.0 =
+* Shortcodes can now be added from the WP-Editor itself. Changed icons to match with Wordpress 3.8 Admin UI.
  
 
 ==Upgrade Notice==
@@ -91,10 +95,16 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 * Fixed W3 Total Cache compatibility issue.  
 
+= 1.0.2 =
+* Fixed broken link text.
+
+= 1.1.0 =
+* Shortcodes can now be added from the WP-Editor itself. Changed icons to match with Wordpress 3.8 Admin UI.
+
 
 
 ==Feedback==
 Please!
-If you don't rate my plugin as 5/5 - please write why - and I will add or change options and fix bugs. It's very unpleasant to see silient low rates. For more information and instructions on this plugin please visit www.dualcube.com.
+If you don't rate my plugin as 5/5 - please write why - and we will add or change options and fix bugs. It's very unpleasant to see silient low rates. For more information and instructions on this plugin please visit www.dualcube.com.
 
 

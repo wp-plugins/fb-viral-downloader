@@ -2,12 +2,7 @@
 	tinymce.create("tinymce.plugins.ViralDownloaderPlugin", {
 		init: function (d, e) {
 			d.addCommand("vdOpenDialog", function (a, c) {
-				var f = jQuery(window).width();
-				b = jQuery(window).height();
-				f = 400 < f ? 400 : f;
-				f -= 80;
-				b -= 84;
-				tb_show("Add viralDownloader Link",	"#TB_inline?width=" + f + "&height=" + b + "&inlineId=vd-dialog");
+				tb_show("Add FB Viral Downloader Link",	"#TB_inline?width=600&height=550&inlineId=vd-dialog");
 			});
 			d.onNodeChange.add(function (a, c) {
 				c.setDisabled("vd_button", a.selection.getContent().length > 0)
@@ -16,8 +11,8 @@
 		createControl: function (d, e) {
 			if (d == "vd_button") {
 				d = e.createButton("vd_button", {
-					text: 'Add viralDownloader Link',
-					image: "../wp-content/plugins/fb-viral-downloader/assets/images/viral_downloader.png",
+					title: 'Add Viral Downloader Link',
+					image: "../wp-content/plugins/fb-viral-downloader/assets/images/viral_downloader.svg",
 					icon: false,
 					onclick: function() {
 						tinyMCE.activeEditor.execCommand("vdOpenDialog", false, {title: 'Add viralDownloader Link' });

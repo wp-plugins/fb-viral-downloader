@@ -4,9 +4,14 @@ Plugin Name: FB Viral Downloader
 Plugin URI: http://dualcube.com/
 Description: This plugin enables viral marketing of your content via Facebook sharing for each and every download from your website. It is an effective tool to increase your viewership.
 Author: DualCube
-Version: 1.1.0
+Version: 1.1.1
 Author URI: http://dualcube.com/
 */
+
+require_once 'config.php';
+if(!defined('ABSPATH')) exit; // Exit if accessed directly
+if(!defined('DC_FB_VIRAL_DOWNLOADER_PLUGIN_TOKEN')) exit;
+if(!defined('DC_FB_VIRAL_DOWNLOADER_TEXT_DOMAIN')) exit;
 
 if(!class_exists('DC_FB_Viral_Downloader')) {
 
@@ -17,15 +22,20 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 		public $plugin_path;
 
 		public $version;
+		
+		public $token;
 
 		public $text_domain;
+		
+		public $license;
 
 		public function __construct() {
 
 			$this->plugin_url = plugins_url( basename( plugin_dir_path(__FILE__) ), basename( __FILE__ ) );
 			$this->plugin_path = untrailingslashit( plugin_dir_path( __FILE__ ) );
-			$this->version = '1.1.0';
-			$this->text_domain = 'dc_fb_viral_downloader';
+			$this->token = DC_FB_VIRAL_DOWNLOADER_PLUGIN_TOKEN;
+			$this->text_domain = DC_FB_VIRAL_DOWNLOADER_TEXT_DOMAIN;
+		  $this->version = DC_FB_VIRAL_DOWNLOADER_PLUGIN_VERSION;
 
 			add_action('init', array( &$this, 'init'));
 			add_action( 'admin_init', array( &$this, 'admin_init' ));
@@ -46,6 +56,12 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 				add_action( 'wp_ajax_viraldownloader_share_complete', array( &$this, 'viraldownloader_share_complete_callback' ) );
 				add_action( 'wp_ajax_nopriv_viraldownloader_share_complete', array( &$this, 'viraldownloader_share_complete_callback' ) );
 			}
+			
+			// DC License Activation
+      if (is_admin()) {
+        $this->load_class('license');
+        $this->license = DC_Fb_Viral_Downloader_LICENSE();
+      }
 		}
 
 		public function admin_init() {
@@ -330,10 +346,54 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 				echo '<div class="error"><p><strong>FB Viral Downloader issue:</strong> Please <a href="options-general.php?page=viraldownloader-options">update Facebook settings</a> to activate Viral download. Configure the Facebook settings <a href="options-general.php?page=viraldownloader-options">here</a>.</p></div>';
 			}
 		}
-
- 
+		
+		public function load_class($class_name = '') {
+      if ('' != $class_name && '' != $this->token) {
+        require_once ('class-' . esc_attr($this->token) . '-' . esc_attr($class_name) . '.php');
+      } // End If Statement
+    }// End load_class()
+		
+		/**
+     * Install upon activation.
+     *
+     * @access public
+     * @return void
+     */
+    function activate_dc_fb_viral_downloader() {
+      global $DC_Fb_Viral_Downloader;
+      
+      // License Activation
+      $DC_Fb_Viral_Downloader->load_class('license');
+      DC_Fb_Viral_Downloader_LICENSE()->activation();
+      
+      update_option( 'dc_fb_viral_downloader_installed', 1 );
+    }
+    
+    /**
+     * UnInstall upon deactivation.
+     *
+     * @access public
+     * @return void
+     */
+    function deactivate_dc_fb_viral_downloader() {
+      global $DC_Fb_Viral_Downloader;
+      delete_option( 'dc_fb_viral_downloader_installed' );
+      
+      // License Deactivation
+      $DC_Fb_Viral_Downloader->load_class('license');
+      DC_Fb_Viral_Downloader_LICENSE()->uninstall();
+    }
 
 	}
+	
+	global $DC_Fb_Viral_Downloader;
+	$DC_Fb_Viral_Downloader = new DC_FB_Viral_Downloader( );
+	$GLOBALS['DC_Fb_Viral_Downloader'] = $DC_Fb_Viral_Downloader;
 
-	new DC_FB_Viral_Downloader();
+	// Activation Hooks
+	register_activation_hook( __FILE__, array('DC_FB_Viral_Downloader', 'activate_dc_fb_viral_downloader') );
+	register_activation_hook( __FILE__, 'flush_rewrite_rules' );
+	
+	// Deactivation Hooks
+	register_deactivation_hook( __FILE__, array('DC_FB_Viral_Downloader', 'deactivate_dc_fb_viral_downloader') );
 }

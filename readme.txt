@@ -4,7 +4,7 @@ Donate link: http://dualcube.com/
 Tags: file upload, pdf upload, zip upload, mp3 upload, share to unlock, like to unlock, content viral, download, Facebook, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, file, mp3, pdf, upload, download, fb
 Requires at least: 3.0.1
 Tested up to: 3.8.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,9 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 = 1.1.0 =
 * Shortcodes can now be added from the WP-Editor itself. Changed icons to match with Wordpress 3.8 Admin UI.
+
+= 1.1.1 =
+* Refactored and fixed code structure.
  
 
 ==Upgrade Notice==
@@ -100,6 +103,9 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 = 1.1.0 =
 * Shortcodes can now be added from the WP-Editor itself. Changed icons to match with Wordpress 3.8 Admin UI.
+
+= 1.1.1 =
+* Refactored and fixed code structure.
 
 
 

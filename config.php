@@ -1,0 +1,11 @@
+<?php
+
+define('DC_FB_VIRAL_DOWNLOADER_PLUGIN_TOKEN', 'dc-fb-viral-downloader');
+
+define('DC_FB_VIRAL_DOWNLOADER_TEXT_DOMAIN', 'fb_viral_downloader');
+
+define('DC_FB_VIRAL_DOWNLOADER_PLUGIN_VERSION', '1.1.1');
+
+define('DC_FB_VIRAL_DOWNLOADER_PLUGIN_SERVER_URL', 'http://plugins.dualcube.com');
+
+?>

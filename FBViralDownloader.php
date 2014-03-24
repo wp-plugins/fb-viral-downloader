@@ -4,7 +4,7 @@ Plugin Name: FB Viral Downloader
 Plugin URI: http://dualcube.com/
 Description: This plugin enables viral marketing of your content via Facebook sharing for each and every download from your website. It is an effective tool to increase your viewership.
 Author: DualCube
-Version: 1.1.1
+Version: 1.1.3
 Author URI: http://dualcube.com/
 */
 
@@ -27,8 +27,6 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 
 		public $text_domain;
 		
-		public $license;
-
 		public function __construct() {
 
 			$this->plugin_url = plugins_url( basename( plugin_dir_path(__FILE__) ), basename( __FILE__ ) );
@@ -57,11 +55,6 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 				add_action( 'wp_ajax_nopriv_viraldownloader_share_complete', array( &$this, 'viraldownloader_share_complete_callback' ) );
 			}
 			
-			// DC License Activation
-      if (is_admin()) {
-        $this->load_class('license');
-        $this->license = DC_Fb_Viral_Downloader_LICENSE();
-      }
 		}
 
 		public function admin_init() {
@@ -187,8 +180,13 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 		}
 
 		public function plugin_option_page() {
+			?>
+			<div class="wrap">
+				<h2>FB Viral Downloader Options</h2>
+			<?php
 			if(isset($_POST['submit']) && $_POST['submit'] == 'Save') {
         update_option('fbSocialClientId', $_POST['fbSocialClientId']);
+        echo '<div class="updated below-h2"><p>' . __( 'Settings Updated', $this->text_domain ) . '</p></div>';
       }
 			?>
 			<style type="text/css">
@@ -198,8 +196,6 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 					padding:15px;
 				}
 			</style>
-			<div class="wrap">
-				<h2>FB Viral Downloader Options</h2>
 				<form method="post">
 					<div>
 						<fieldset>
@@ -347,12 +343,6 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 			}
 		}
 		
-		public function load_class($class_name = '') {
-      if ('' != $class_name && '' != $this->token) {
-        require_once ('class-' . esc_attr($this->token) . '-' . esc_attr($class_name) . '.php');
-      } // End If Statement
-    }// End load_class()
-		
 		/**
      * Install upon activation.
      *
@@ -361,10 +351,6 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
      */
     function activate_dc_fb_viral_downloader() {
       global $DC_Fb_Viral_Downloader;
-      
-      // License Activation
-      $DC_Fb_Viral_Downloader->load_class('license');
-      DC_Fb_Viral_Downloader_LICENSE()->activation();
       
       update_option( 'dc_fb_viral_downloader_installed', 1 );
     }
@@ -378,10 +364,6 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
     function deactivate_dc_fb_viral_downloader() {
       global $DC_Fb_Viral_Downloader;
       delete_option( 'dc_fb_viral_downloader_installed' );
-      
-      // License Deactivation
-      $DC_Fb_Viral_Downloader->load_class('license');
-      DC_Fb_Viral_Downloader_LICENSE()->uninstall();
     }
 
 	}

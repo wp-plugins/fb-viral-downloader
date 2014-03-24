@@ -4,7 +4,7 @@ Donate link: http://dualcube.com/
 Tags: file upload, pdf upload, zip upload, mp3 upload, share to unlock, like to unlock, content viral, download, Facebook, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, file, mp3, pdf, upload, download, fb
 Requires at least: 3.0.1
 Tested up to: 3.8.1
-Stable tag: 1.1.1
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,12 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 = 1.1.1 =
 * Refactored and fixed code structure.
+
+= 1.1.2 =
+* Minor bug fix.
+
+= 1.1.3 =
+* Minor bug fix.
  
 
 ==Upgrade Notice==
@@ -107,10 +113,16 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 = 1.1.1 =
 * Refactored and fixed code structure.
 
+= 1.1.2 =
+* Minor bug fix.
+
+= 1.1.3 =
+* Minor bug fix.
+
 
 
 ==Feedback==
-Please!
-If you don't rate my plugin as 5/5 - please write why - and we will add or change options and fix bugs. It's very unpleasant to see silient low rates. For more information and instructions on this plugin please visit www.dualcube.com.
+All we want is some love. If you did not like this plugin or if it is buggy, please give us a shout and we will be happy to fix the issue/add the feature. If you indeed liked it, please leave a 5/5 rating.  
+In case you feel compelled to rate this plugin less than 5 stars - please do mention the reason and we will add or change options and fix bugs. It's very unpleasant to see silent low rates. For more information and instructions on this plugin please visit www.dualcube.com.
 
 

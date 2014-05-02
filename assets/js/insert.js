@@ -38,7 +38,7 @@ jQuery(document).ready(function($) {
 		shortcode += id;
 		shortcode += ' ';
 		if($('#viraldownloaderLinkText').val() != '')
-			shortcode += 'text="' + $('#viraldownloaderLinkText').val() + '"';
+			shortcode += 'text=\'' + $('#viraldownloaderLinkText').val() + '\'';
 		shortcode += ']';
 		
 		return shortcode;
@@ -79,8 +79,6 @@ jQuery(document).ready(function($) {
  
     file_frame.on( 'select', function() {
       attachment = file_frame.state().get('selection').first().toJSON();
-      console.log(type);
-      console.log(file_frame.uploader.uploader.param('upload_for'));
  
       if( (file_frame.uploader.uploader.param('upload_for') === undefined && type == 'file') ||  file_frame.uploader.uploader.param('upload_for') == 'file') {
 				$('#fb_viral_downloader_container .file').val(attachment.url);

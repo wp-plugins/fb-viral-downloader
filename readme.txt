@@ -3,8 +3,8 @@ Contributors: Dualcube
 Donate link: http://dualcube.com/
 Tags: file upload, pdf upload, zip upload, mp3 upload, share to unlock, like to unlock, content viral, download, Facebook, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, file, mp3, pdf, upload, download, fb
 Requires at least: 3.0.1
-Tested up to: 3.8.1
-Stable tag: 1.1.3
+Tested up to: 3.9
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,7 +43,7 @@ The Facebook Downloader plugin create posts for your Wordpress websites where yo
 ==Frequently Asked Questions==
 
 = Does this plugin work with newest WP version and also older versions? =
-**Yes, this plugin works really fine with WordPress 3.8!
+**Yes, this plugin works really fine with WordPress 3.9!
 It is also compatible for older Wordpress versions upto 3.0.1.**
 
 = Is it possible for the users by any means to download the file without sharing on Facebook? =
@@ -96,6 +96,9 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 = 1.1.3 =
 * Minor bug fix.
+
+= 1.2 =
+* Made compatible with Wordpress version 3.9.
  
 
 ==Upgrade Notice==
@@ -118,6 +121,9 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 = 1.1.3 =
 * Minor bug fix.
+
+= 1.2 =
+* Made compatible with Wordpress version 3.9.
 
 
 

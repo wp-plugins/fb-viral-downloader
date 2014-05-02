@@ -4,7 +4,7 @@ Plugin Name: FB Viral Downloader
 Plugin URI: http://dualcube.com/
 Description: This plugin enables viral marketing of your content via Facebook sharing for each and every download from your website. It is an effective tool to increase your viewership.
 Author: DualCube
-Version: 1.1.3
+Version: 1.2
 Author URI: http://dualcube.com/
 */
 
@@ -59,8 +59,10 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 
 		public function admin_init() {
 			//add tinymce button
-			add_filter( 'mce_buttons',          array( &$this, 'filter_mce_buttons') );
-			add_filter( 'mce_external_plugins', array( &$this, 'filter_mce_external_plugins' ) );
+			if ( 'true' == get_user_option( 'rich_editing' ) ) {
+  			add_filter( 'mce_buttons',          array( &$this, 'filter_mce_buttons') );
+  			add_filter( 'mce_external_plugins', array( &$this, 'filter_mce_external_plugins' ) );
+      }
 			add_action( 'admin_notices', array( &$this, 'show_admin_messages' ) );
 			add_action( 'wp_ajax_add_new_downloadable', array( &$this, 'add_new_downloadable_callback' ) );
 		}
@@ -244,7 +246,11 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 		}
 
 		public function filter_mce_external_plugins( $plugins ) {
-			$plugins['ViralDownloaderPlugin'] = $this->plugin_url . '/assets/js/tinymce/editor_plugin.js';
+		  if( get_bloginfo('version') < 3.9 ) {
+		    $plugins['ViralDownloaderPlugin'] = $this->plugin_url . '/assets/js/tinymce/editor_plugin.js';
+      } else {
+        $plugins['ViralDownloaderPlugin'] = $this->plugin_url . '/assets/js/tinymce/editor_plugin_4.js';
+      }
 			return $plugins;
 		}
 

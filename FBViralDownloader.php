@@ -4,7 +4,7 @@ Plugin Name: FB Viral Downloader
 Plugin URI: http://dualcube.com/
 Description: This plugin enables viral marketing of your content via Facebook sharing for each and every download from your website. It is an effective tool to increase your viewership.
 Author: DualCube
-Version: 1.2
+Version: 1.3
 Author URI: http://dualcube.com/
 */
 
@@ -22,11 +22,11 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 		public $plugin_path;
 
 		public $version;
-		
+
 		public $token;
 
 		public $text_domain;
-		
+
 		public function __construct() {
 
 			$this->plugin_url = plugins_url( basename( plugin_dir_path(__FILE__) ), basename( __FILE__ ) );
@@ -54,7 +54,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 				add_action( 'wp_ajax_viraldownloader_share_complete', array( &$this, 'viraldownloader_share_complete_callback' ) );
 				add_action( 'wp_ajax_nopriv_viraldownloader_share_complete', array( &$this, 'viraldownloader_share_complete_callback' ) );
 			}
-			
+
 		}
 
 		public function admin_init() {
@@ -150,13 +150,26 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 		}
 
 		public function stats_metabox() {
-			global $post;
-			$total = 0;
-			if($viraldownloader_share_data = get_post_meta((int)$_POST['download_id'], 'viraldownloader_share_data', true)) {
-				$total = count($viraldownloader_share_data);
-			}
-			echo '<p><label>Total Share : </label>' . $total . '</p>';
-			echo '<p class="description">See how many times your file is shared over Facebook. (If a single user downloads more than once the count will increase for each share).</p>';
+      global $post;
+      $total = 0;
+      if($viraldownloader_share_data = get_post_meta($post->ID, 'viraldownloader_share_data', true)) {
+        $total = count($viraldownloader_share_data);
+      }
+      echo '<p><label>Total Share : </label>' . $total . '</p>';
+      echo '<p class="description">See how many times your file is shared over Facebook. (If a single user downloads more than once the count will increase for each share).</p>';
+      if(!empty($viraldownloader_share_data)) {
+        echo '<h4>Recently shared by</h4>';
+        echo '<ul>';
+        $recent_share_data = array_slice(array_reverse($viraldownloader_share_data), 0, 10);
+        foreach($recent_share_data as $data) {
+          if(is_array($data) && isset($data['post_id']) && !empty($data['post_id'])) {
+            $pieces = explode("_", $data['post_id']);
+            $fb_id = $pieces[0];
+            echo '<li style="float:left; margin-right: 5px;"><a href="https://www.facebook.com/'.$fb_id.'"><img src="http://graph.facebook.com/'.$fb_id.'/picture?type=square"/></a></li>';
+          }
+        }
+        echo '</ul><div style="clear:both;"></div>';
+      }
 		}
 
 		public function save_metabox_data($post_id) {
@@ -268,7 +281,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 			?>
 			<style>
 				#TB_window {overflow: auto;}
-				#TB_ajaxContent {overflow: visible; width: 94% !important;}			
+				#TB_ajaxContent {overflow: visible; width: 94% !important;}
 				select#viraldownloaderDownlaodableSelect {padding: 2px;}
 			</style>
 			<table class="form-table" id="fb_viral_downloader_container">
@@ -311,7 +324,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 					<th>Image</th>
 					<td>
 						<button class="button-secondary upload image-upload">Upload</button>
-						<img src="" class="image-preview" width="30" height="30" />						
+						<img src="" class="image-preview" width="30" height="30" />
 						<input class="image" type="hidden" />
 					</td>
 				</tr>
@@ -348,7 +361,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 				echo '<div class="error"><p><strong>FB Viral Downloader issue:</strong> Please <a href="options-general.php?page=viraldownloader-options">update Facebook settings</a> to activate Viral download. Configure the Facebook settings <a href="options-general.php?page=viraldownloader-options">here</a>.</p></div>';
 			}
 		}
-		
+
 		/**
      * Install upon activation.
      *
@@ -357,10 +370,10 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
      */
     function activate_dc_fb_viral_downloader() {
       global $DC_Fb_Viral_Downloader;
-      
+
       update_option( 'dc_fb_viral_downloader_installed', 1 );
     }
-    
+
     /**
      * UnInstall upon deactivation.
      *
@@ -373,7 +386,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
     }
 
 	}
-	
+
 	global $DC_Fb_Viral_Downloader;
 	$DC_Fb_Viral_Downloader = new DC_FB_Viral_Downloader( );
 	$GLOBALS['DC_Fb_Viral_Downloader'] = $DC_Fb_Viral_Downloader;
@@ -381,7 +394,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 	// Activation Hooks
 	register_activation_hook( __FILE__, array('DC_FB_Viral_Downloader', 'activate_dc_fb_viral_downloader') );
 	register_activation_hook( __FILE__, 'flush_rewrite_rules' );
-	
+
 	// Deactivation Hooks
 	register_deactivation_hook( __FILE__, array('DC_FB_Viral_Downloader', 'deactivate_dc_fb_viral_downloader') );
 }

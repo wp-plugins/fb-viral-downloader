@@ -4,7 +4,7 @@ Donate link: http://dualcube.com/
 Tags: file upload, pdf upload, zip upload, mp3 upload, share to unlock, like to unlock, content viral, download, Facebook, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, file, mp3, pdf, upload, download, fb
 Requires at least: 3.0.1
 Tested up to: 3.9
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,7 +99,9 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 = 1.2 =
 * Made compatible with Wordpress version 3.9.
- 
+
+= 1.3 =
+* Fixed share count issue. Facebook profile link of recently shared users are shown in admin.
 
 ==Upgrade Notice==
 
@@ -124,6 +126,9 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 
 = 1.2 =
 * Made compatible with Wordpress version 3.9.
+
+= 1.3 =
+* Fixed share count issue. Facebook profile link of recently shared users are shown in admin.
 
 
 

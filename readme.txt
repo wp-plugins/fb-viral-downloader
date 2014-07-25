@@ -4,7 +4,7 @@ Donate link: http://dualcube.com/
 Tags: file upload, pdf upload, zip upload, mp3 upload, share to unlock, like to unlock, content viral, download, Facebook, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, file, mp3, pdf, upload, download, fb
 Requires at least: 3.0.1
 Tested up to: 3.9
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,11 @@ Cool new Wordpress plugin that acts as an useful downloader for Wordpress sites 
 
 == Description ==
 
-This is powerful viral marketing tool which allows your end users to download files from your wordpress site making the content go viral on web. Using this brand new plugin you can add viral downloadable content to your website. The download link sends your end users to a Facebook login page and they are only able to download the file when he/she shares your added content on Facebook. This way you can rest assure that for every download is made your contents are going viral. Its a simple yet powerful mechanism to gain widespread popularity through the immensely used social platform.
+This is powerful viral marketing tool which allows your end users to download files from your wordpress site making the content go viral on web.
+
+Using this brand new plugin you can add viral downloadable content to your website. The download link sends your end users to a Facebook login page and they are only able to download the file when he/she shares your added content on Facebook. This way you can rest assure that for every download is made your contents are going viral.
+
+Its a simple yet powerful mechanism to gain widespread popularity through the immensely used social platform.
 
 
 ==Special Features==
@@ -32,6 +36,8 @@ The Facebook Downloader plugin create posts for your Wordpress websites where yo
 
 6.**Add shortcodes on the go from WP-Editor itself**
 
+7.**Customize each download links by filter and styling**
+
 
 ==Installation==
 
@@ -43,20 +49,46 @@ The Facebook Downloader plugin create posts for your Wordpress websites where yo
 ==Frequently Asked Questions==
 
 = Does this plugin work with newest WP version and also older versions? =
-**Yes, this plugin works really fine with WordPress 3.9!
-It is also compatible for older Wordpress versions upto 3.0.1.**
+Yes, this plugin works really fine with WordPress 3.9!
+It is also compatible for older Wordpress versions upto 3.0.1.
 
 = Is it possible for the users by any means to download the file without sharing on Facebook? =
-**No, the download is only possible when the viewer shares the download link on Facebook.**
+No, the download is only possible when the viewer shares the download link on Facebook.
 
 = Can I share any pdf or zip file? =
-**Yes, the plugin allows you to share any format of file you want**
+Yes, the plugin allows you to share any format of file you want
 
 = Is the plugin compatible with my theme? =
-**Yes, the plugin is completely compatible with all the Wordpress themes!**
+Yes, the plugin is completely compatible with all the Wordpress themes!
 
 = Can I add title and description to the link that will be posted on Facebook? =
-**Yes, you can add title and a brief description to the link to be posted on Facebook wall of the user.**
+Yes, you can add title and a brief description to the link to be posted on Facebook wall of the user.
+
+= Can I use images instead of text in the download link? =
+You can either enter the `img` tag directly inside the link text or keep the text blank and insert the link then you will find a shortcode added to the visual editor like `[viraldownloader id=123 text='']`. Place your custor between the quotes of `text=''` and then click on the Add media button and select an image. Make sure Link to is selected none before you insert into post.
+
+You can do it programmatically too just add the following line to your theme's `functions.php` file
+
+
+    add_filter( 'fb_viral_downloader_html', 'custom_fb_viral_downloader_html', 10, 3 );
+    function custom_fb_viral_downloader_html( $text, $id, $share_count ) {
+    	if( $id == 123 ) { //suppose your downloadable id is 123
+    		$text = '<img src="http://yoursite/yourimagepath/yourimg.jpg"/>';
+    	}
+    	return $text;
+    }
+
+= Can I customize the Download Link html? =
+Yes, you can do it just by adding a few lines to the theme's `functions.php`. `fb_viral_downloader_html` filter allows you to customize the html. It returns two extra parameters apart from the text, `$id` the id of the downloadable post and `$share_count` the count of the number of times the post is being shared.
+
+Eg code:
+
+    add_filter( 'fb_viral_downloader_html', 'custom_fb_viral_downloader_html', 10, 3 );
+    function custom_fb_viral_downloader_html( $text, $id, $share_count ) {
+    	return 'Share This to download' . '&nbsp;<span>(' . $share_count . '</span>)';
+    }
+
+
 
 ==Screenshots===
 1. FB Viral Downloader in Admin Panel Configuration.
@@ -103,6 +135,11 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 = 1.3 =
 * Fixed share count issue. Facebook profile link of recently shared users are shown in admin.
 
+= 1.4 =
+* Fixed conflict with other facebook widget.
+* Added filter `fb_viral_downloader_html` to customize the download link.
+* Unique class added to each download link for styling.
+
 ==Upgrade Notice==
 
 =1.0.1=
@@ -130,7 +167,37 @@ It is also compatible for older Wordpress versions upto 3.0.1.**
 = 1.3 =
 * Fixed share count issue. Facebook profile link of recently shared users are shown in admin.
 
+= 1.4 =
+Fixed conflict with other facebook widget. Added filter `fb_viral_downloader_html` to customize the download link. Unique class added to each download link for styling.
 
+
+== Create Your Facebook App in 8 steps ==
+
+1. Go to [https://developers.facebook.com/apps/](https://developers.facebook.com/apps/)
+
+2. Click Create New App
+
+3. Fill out the details in the popup
+
+4. Go to the particular app. There should be dashboards and other links
+
+5. Click on Settings
+
+a. Fill up Contact Email, App Domain. Enter example.com (Do not prefix http:// or https://)
+
+b. Click on Add Platform, choose Website.
+
+c. Provide Site URL and Mobile URL. Enter http(s)://example.com
+
+d. Click on “Save Changes”.
+
+ 6. Go to “Status and Review”. On the top right corner beside the App name make the radio button to “Yes”.
+
+7. Go back to App Dashboard, copy the App ID.
+
+8. Set the app id on the plugin setting page after creating the app on Facebook.
+
+For detailed tutorial with screenshots visit [this link](http://dualcube.com/register-wordpress-app-now/).
 
 ==Feedback==
 All we want is some love. If you did not like this plugin or if it is buggy, please give us a shout and we will be happy to fix the issue/add the feature. If you indeed liked it, please leave a 5/5 rating.  

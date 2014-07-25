@@ -7,6 +7,7 @@ jQuery(document).ready(function($) {
 		FB.init({
 			appId : parseInt(viraldownloader_data.fb_client_id),
 			status : true,
+			version : 'v1.0',
 			cookie : true
 		});
 
@@ -49,3 +50,4 @@ jQuery(document).ready(function($) {
 		});
 	});
 });
+

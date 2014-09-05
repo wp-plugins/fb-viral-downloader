@@ -4,7 +4,7 @@ Donate link: http://dualcube.com/
 Tags: file upload, pdf upload, zip upload, mp3 upload, share to unlock, like to unlock, content viral, download, Facebook, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, file, mp3, pdf, upload, download, fb
 Requires at least: 3.0.1
 Tested up to: 3.9
-Stable tag: 1.4
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,9 @@ Eg code:
 * Added filter `fb_viral_downloader_html` to customize the download link.
 * Unique class added to each download link for styling.
 
+= 1.4.1 =
+* Fixed notices in plugin
+
 ==Upgrade Notice==
 
 =1.0.1=
@@ -169,6 +172,9 @@ Eg code:
 
 = 1.4 =
 Fixed conflict with other facebook widget. Added filter `fb_viral_downloader_html` to customize the download link. Unique class added to each download link for styling.
+
+= 1.4.1 =
+Fixed notices in plugin
 
 
 == Create Your Facebook App in 8 steps ==

@@ -4,7 +4,7 @@ Plugin Name: FB Viral Downloader
 Plugin URI: http://dualcube.com/
 Description: This plugin enables viral marketing of your content via Facebook sharing for each and every download from your website. It is an effective tool to increase your viewership.
 Author: DualCube
-Version: 1.4.1
+Version: 1.4.2
 Author URI: http://dualcube.com/
 */
 
@@ -242,7 +242,7 @@ if(!class_exists('DC_FB_Viral_Downloader')) {
 			$link_html .= ' data-title="' . get_the_title($id) . '"';
 			$link_html .= ' data-id="' . $id . '"';
 			$link_html .= '>';
-			$link_html .= apply_filters( 'fb_viral_downloader_html', $text, $downloadable_id, $share_count );
+			$link_html .= apply_filters( 'fb_viral_downloader_html', $text, $id, $share_count );
 			$link_html .= '</a>';
 
 			return $link_html;

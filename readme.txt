@@ -15,9 +15,17 @@ This is a "Share to Download" plugin, and works for Facebook, Google+ and Twitte
 This plugin is a very powerful viral marketing tool. Once installed, this plugin prompts the user to share a msg in her Facebok/Twitter/Google before downloading any file from your site. The admin can edit the msg. from the setting pane. Additionally, the admin can now keep a track of the number of downloads, and hence shares, his files are getting. It is a simple yet powerful mechanism to gain widespread popularity throughsocial sites
 
 = Features =
-The Facebook Downloader plugin create posts for your Wordpress websites where you can add a downloadable file link. You may also add a description along with a title for the Facebook post which will be shared when a viewer wants to download the file from your website. 
+The Viral Downloader plugin create posts for your Wordpress websites where you can add a downloadable file link. You may also add a description along with a title for the Facebook post which will be shared when a viewer wants to download the file from your website. 
 
 * Gain widespread popularity with minimal efforts!
+* Added new sharing options Google+ & Twitter.
+* Admin have opportunity to select which sharing method will apper on front end.
+* Added two download options 'Redirect' & 'Featured'.
+* Added different Settings panel for settings.
+* Very minimal coding with maximum portability.
+* All share count will be shown including individual sharing count.
+* Total download count can be found in post page.
+* Ability to add new shortcode from page itself.
 * Each and every download and share counts.
 * Add downloadable file to posts through shortcodes.
 * Share files of any format you want.
@@ -25,7 +33,8 @@ The Facebook Downloader plugin create posts for your Wordpress websites where yo
 * Add shortcodes on the go from WP-Editor itself.
 * Customize each download links by filter and styling.
 * Block IP Address and Agents.
-* All download logs with all details are stored 
+* All download logs with all details are stored.
+* All Download logs will be there in table format.
 * Ability to export download logs In CSV.
 * Ability to search intended data In download logs.
 * Ability to add categories and tags to posts.
@@ -41,18 +50,16 @@ The Facebook Downloader plugin create posts for your Wordpress websites where yo
 Viral Downloader is completely customizable. You may change settings as you want. And You also can block IP, Agents As your requirement.
 
 = Feedback =
-
 All we want is some love. If you did not like this plugin or if it is buggy, please give us a shout and we will be happy to fix the issue/add the feature. If you indeed liked it, please leave a 5/5 rating.  
 In case you feel compelled to rate this plugin less than 5 stars - please do mention the reason and we will add or change options and fix bugs. It's very unpleasant to see silent low rates. For more information and instructions on this plugin please visit www.dualcube.com.
 
 == Installation ==
-
 1. Upload the entire `fb-viral-downloader` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Look at your admin bar and enjoy using the new links there.
 4. Go and manage your forum.
 
-==Frequently Asked Questions==
+== Frequently Asked Questions ==
 
 = Does this plugin work with newest WP version and also older versions? =
 Yes, this plugin works really fine with WordPress 4.2.2!
@@ -95,7 +102,7 @@ Eg code:
     }
 
 
-==Screenshots===
+== Screenshots ==
 1. Viral Downloader in Admin Panel Configuration General Settings.
 2. Viral Downloader in Admin Panel Configuration Download Logs Settings.
 3. Viral Downloader Post Type.
@@ -105,10 +112,9 @@ Eg code:
 7. Viral Downloader Download & Share Logs.
 8. Viral Downloader End User View.
 
-==Changelog==
+== Changelog ==
 
-= 
-1.0.0=
+= 1.0.0 =
 * Initial release
 
 = 1.0.1 =
@@ -155,10 +161,9 @@ Eg code:
 * New Admin Panel For IDs
 * IP Block And Agent Block Capability
 
-==Upgrade Notice==
+== Upgrade Notice ==
 
-=1.0.1=
-
+= 1.0.1 =
 * Fixed W3 Total Cache compatibility issue.  
 
 = 1.0.2 =

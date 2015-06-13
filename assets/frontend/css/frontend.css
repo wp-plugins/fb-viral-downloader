@@ -1,0 +1,17 @@
+.fa-facebook-official{
+	color:#3A5795;
+}
+
+.fa-google-plus-square{
+	color:#DF4B38;
+}
+
+.adjust{
+	float: left;
+	padding-right: 5px;
+}
+
+#bttn {
+	height: 24px;
+  width: 65px;
+}

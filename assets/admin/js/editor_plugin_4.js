@@ -10,7 +10,7 @@
 
 		editor.addButton('vd_button', {
 			title : 'Add Viral Downloader Link',
-			image : "../wp-content/plugins/fb-viral-downloader/assets/images/viral_downloader.svg",
+			image : "../wp-content/plugins/fb-viral_downloader/assets/images/viral_downloader.svg",
 			icon : false,
 			onclick : function() {
 				tinyMCE.activeEditor.execCommand("vdOpenDialog", false, {

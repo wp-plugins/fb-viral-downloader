@@ -3,7 +3,10 @@ jQuery(document).ready(function($) {
 	var file_frame;
 	var wp_media_post_id = wp.media.model.settings.post.id;
 	var set_to_post_id = 0;
+	var google=0,facebook=0,twitter=0;
+	var feat=0,mem=0,red=0; 
 	$('#viraldownloaderInsertButton').click(function(e) {
+		//alert('ok');
 		e.preventDefault();
 		if($('#viraldownloaderDownlaodableSelect').val() != 'add-new') {
 			var shortcode = generateShortCode($('#viraldownloaderDownlaodableSelect').val() , $('#viraldownloaderLinkText').val());
@@ -15,6 +18,12 @@ jQuery(document).ready(function($) {
 				title : $('#fb_viral_downloader_container .title').val(),
 				featured_image : $('#fb_viral_downloader_container .image').val(),
 				data : {
+					share_google : google,
+					share_facebook : facebook,
+					share_twitter : twitter,
+					featured : feat,
+					members : mem,
+					redirect : red,
 					share_url : $('#fb_viral_downloader_container .url').val(),
 					share_caption : $('#fb_viral_downloader_container .caption').val(),
 					share_description : $('#fb_viral_downloader_container .description').val(),
@@ -23,6 +32,7 @@ jQuery(document).ready(function($) {
 			};
 			$.post(ajaxurl, data, function(response) {
 				if(response) {
+					//console.log(response);
 					var shortcode = generateShortCode(response , $('#viraldownloaderLinkText').val());
 					tinyMCE.activeEditor.execCommand("mceInsertContent", false, shortcode);
 				} else {
@@ -33,6 +43,49 @@ jQuery(document).ready(function($) {
 		}
 	});
 	
+	$('#fb_viral_downloader_container .share_google').change(function (){
+		if($(this).is(":checked"))	{
+			google = 1;
+		} else {
+		 	google = 0;
+		}
+	});
+	$('#fb_viral_downloader_container .share_facebook').change(function (){
+		if($(this).is(":checked"))	{
+			facebook = 1;
+		} else {
+			facebook = 0;
+		}
+	});
+	$('#fb_viral_downloader_container .share_twitter').change(function (){
+		if($(this).is(":checked"))	{
+			twitter = 1;
+		} else {
+			twitter = 0;
+		}
+	});
+	$('#fb_viral_downloader_container .featured').change(function (){
+		if($(this).is(":checked"))	{
+			feat = 1;
+		} else {
+		 	feat = 0;
+		}
+	});
+	$('#fb_viral_downloader_container .members').change(function (){
+		if($(this).is(":checked"))	{
+			mem = 1;
+		} else {
+			mem = 0;
+		}
+	});
+	$('#fb_viral_downloader_container .redirect').change(function (){
+		if($(this).is(":checked"))	{
+			red = 1;
+		} else {
+			red = 0;
+		}
+	});
+	
 	function generateShortCode(id, text) {
 		var shortcode = '[viraldownloader id=';
 		shortcode += id;
@@ -40,7 +93,6 @@ jQuery(document).ready(function($) {
 		if($('#viraldownloaderLinkText').val() != '')
 			shortcode += 'text=\'' + $('#viraldownloaderLinkText').val() + '\'';
 		shortcode += ']';
-		
 		return shortcode;
 	}
 	

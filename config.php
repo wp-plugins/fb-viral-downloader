@@ -1,9 +1,8 @@
 <?php
 
-define('DC_FB_VIRAL_DOWNLOADER_PLUGIN_TOKEN', 'dc-fb-viral-downloader');
+define('FB_VIRAL_DOWNLOADER_PLUGIN_TOKEN', 'fb-viral-downloader');
 
-define('DC_FB_VIRAL_DOWNLOADER_TEXT_DOMAIN', 'fb_viral_downloader');
+define('FB_VIRAL_DOWNLOADER_TEXT_DOMAIN', 'viral_downloader');
 
-define('DC_FB_VIRAL_DOWNLOADER_PLUGIN_VERSION', '1.4.2');
-
+define('FB_VIRAL_DOWNLOADER_PLUGIN_VERSION', '1.0.0');
 ?>

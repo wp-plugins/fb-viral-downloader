@@ -15,3 +15,10 @@
 	height: 24px;
   width: 65px;
 }
+
+.viraldownloader_url {
+	color: blue;
+	cursor: pointer;
+	font-size: 15px;
+	text-decoration: underline;
+}

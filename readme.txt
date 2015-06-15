@@ -5,7 +5,7 @@ Tags: share to download, comment to download, Facebook, Google +, Twitter, actio
 Donate link: http://dualcube.com/
 Requires at least: 3.0
 Tested up to: 4.2.2
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -161,6 +161,9 @@ Eg code:
 * New Admin Panel For IDs
 * IP Block And Agent Block Capability
 
+= 2.0.1 =
+* 'Bringing User Back To Top' issue is solved.
+
 == Upgrade Notice ==
 
 = 1.0.1 =
@@ -188,13 +191,13 @@ Eg code:
 * Fixed share count issue. Facebook profile link of recently shared users are shown in admin.
 
 = 1.4 =
-Fixed conflict with other facebook widget. Added filter `fb_viral_downloader_html` to customize the download link. Unique class added to each download link for styling.
+* Fixed conflict with other facebook widget. Added filter `fb_viral_downloader_html` to customize the download link. Unique class added to each download link for styling.
 
 = 1.4.1 =
-Fixed notices in plugin
+* Fixed notices in plugin
 
 = 1.4.2 =
-Minor bug fixes
+* Minor bug fixes
 
 = 2.0.0 =
 * Added Google+ And Twitter Support
@@ -204,4 +207,7 @@ Minor bug fixes
 * Export And Delete Ability For All Logs
 * New Admin Panel For IDs
 * IP Block And Agent Block Capability
+
+= 2.0.1 =
+* 'Bringing User Back To Top' issue is solved.
 

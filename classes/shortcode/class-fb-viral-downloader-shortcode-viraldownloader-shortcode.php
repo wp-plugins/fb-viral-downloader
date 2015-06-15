@@ -33,10 +33,10 @@ class WC_Viraldownloader_Shortcode {
 		$common_html .= ' data-title="' . get_the_title($id) . '"';
 		$common_html .= ' data-id="' . $id . '"';
 		$common_html .= ' data-fbid="' . $fbid . '"></i>';
-		$link_html .= '<a href="#" class="viraldownloader_url viraldownloader pop' . $id . '"';
+		$link_html .= '<label class="viraldownloader_url viraldownloader pop' . $id . '"';
 		$link_html .= '>';
 		$link_html .= apply_filters( 'fb_viral_downloader_html', $text, $id, $share_count );
-		$link_html .= '</a>';
+		$link_html .= '</label>';
 		$link_html .= '<div class="download">';
 		if(get_post_meta($id, '_share_facebook', true) == 1) {
 			$link_html .= '<div id="fb-root"></div><div class="adjust" ><a href="#"><i id="fb" class="fa fa-facebook-official fa-2x"' . $common_html . '</a></div>';

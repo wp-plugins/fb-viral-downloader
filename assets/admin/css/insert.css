@@ -1,0 +1,12 @@
+#TB_window {
+  overflow: auto;
+}
+        
+#TB_ajaxContent {
+  overflow: visible; 
+  width: 94% !important;
+}
+
+select#viraldownloaderDownlaodableSelect {
+  padding: 2px;
+}

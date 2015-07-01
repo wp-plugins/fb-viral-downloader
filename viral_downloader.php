@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Viral Downloader
+Plugin Name: Social Viral Downloader
 Plugin URI: http://dualcube.com
 Description: Your plugin description here
 Author: Dualcube, Arim Ghosh, Sayan Saha
-Version: 2.0.1
+Version: 2.0.2
 Author URI: http://dualcube.com
 */
 

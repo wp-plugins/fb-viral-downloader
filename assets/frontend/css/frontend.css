@@ -11,9 +11,22 @@
 	padding-right: 5px;
 }
 
+/* #bttn {
+	height: 28px;
+  width: 80px;
+} */
+
 #bttn {
-	height: 24px;
-  width: 65px;
+  background: #587898;
+  border: none;
+  color: #fefefe;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 17px;
+  margin: 0px 10px 0 0;
+  padding: 5px 11px;
+  position: relative;
+  text-decoration: none;
 }
 
 .viraldownloader_url {

@@ -70,10 +70,10 @@ class WC_Viraldownloader_Shortcode {
 		if($settings['is_enable'] == 'Enable'){
 			$ips_to_block = $settings['blacklisted_ips'];
 			$blacklisted_agents = $settings['blacklisted_agents'];
-			$link_html .= '<input type="button" id="bttn" name="gen" value="Generate" data-gp='.$gp.' data-fb='.$fb.' data-tw='.$tw.' data-id='.$id.' data-ip='.$ips_to_block.' data-agents='.$blacklisted_agents.' data-members='.get_post_meta( $id, '_members' , true).' data-feature='.get_post_meta( $id, '_featured' , true ).' data-file='.$file_name[1].'><br></div>';
+			$link_html .= '<br><br><input type="button" id="bttn" name="gen" value="Generate" data-gp='.$gp.' data-fb='.$fb.' data-tw='.$tw.' data-id='.$id.' data-ip='.$ips_to_block.' data-agents='.$blacklisted_agents.' data-members='.get_post_meta( $id, '_members' , true).' data-feature='.get_post_meta( $id, '_featured' , true ).' data-file='.$file_name[1].'><br></div>';
 			echo $link_html;
 		} else {
-			$link_html .= '<input type="button" id="bttn" name="gen" value="Generate" data-gp='.$gp.' data-fb='.$fb.' data-tw='.$tw.' data-id='.$id.' data-members='.get_post_meta( $id, '_members' , true).' data-feature='.get_post_meta( $id, '_featured' , true ).' data-file='.$file_name[1].'><br></div>';
+			$link_html .= '<br><br><input type="button" id="bttn" name="gen" value="Generate" data-gp='.$gp.' data-fb='.$fb.' data-tw='.$tw.' data-id='.$id.' data-members='.get_post_meta( $id, '_members' , true).' data-feature='.get_post_meta( $id, '_featured' , true ).' data-file='.$file_name[1].'><br></div>';
 			echo $link_html;
 			do_action('fb-viral-downloader_template');
 		}

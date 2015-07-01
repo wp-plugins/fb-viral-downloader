@@ -1,11 +1,11 @@
-=== Viral Downloader ===
+=== Social Viral Downloader ===
 Contributors: Dualcube, arimghosh, SayanS
 Tags: share to download, comment to download, Facebook, Google +, Twitter, action gate, actiongating, action-gating, action gating, like gating, likegating, like-gating, share to unlock, like to unlock, share to download, comment to download, viral content, sharing, social share, viral, facebook share, internet marketing, marketing, downloadable, popularity, file, pdf, downloads, monitor, hits, download monitor, tracking, admin, count, counter, files, versions, download count, logging, digital documents, download category, download manager, download template, downloadmanager, file manager, file tree, grid, hits, ip-address, manager, media, monitor, password, protect downloads, tracker
 
 Donate link: http://dualcube.com/
 Requires at least: 3.0
 Tested up to: 4.2.2
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ This is a "Share to Download" plugin, and works for Facebook, Google+ and Twitte
 This plugin is a very powerful viral marketing tool. Once installed, this plugin prompts the user to share a msg in her Facebok/Twitter/Google before downloading any file from your site. The admin can edit the msg. from the setting pane. Additionally, the admin can now keep a track of the number of downloads, and hence shares, his files are getting. It is a simple yet powerful mechanism to gain widespread popularity throughsocial sites
 
 = Features =
-The Viral Downloader plugin create posts for your Wordpress websites where you can add a downloadable file link. You may also add a description along with a title for the Facebook post which will be shared when a viewer wants to download the file from your website. 
+The Social Viral Downloader plugin create posts for your Wordpress websites where you can add a downloadable file link. You may also add a description along with a title for the Facebook post which will be shared when a viewer wants to download the file from your website. 
 
 * Gain widespread popularity with minimal efforts!
 * Added new sharing options Google+ & Twitter.
@@ -47,7 +47,7 @@ The Viral Downloader plugin create posts for your Wordpress websites where you c
 * Support added for common importers like Wordpress Importer and WP All Import
 
 = Configurable =
-Viral Downloader is completely customizable. You may change settings as you want. And You also can block IP, Agents As your requirement.
+Social Viral Downloader is completely customizable. You may change settings as you want. And You also can block IP, Agents As your requirement.
 
 = Feedback =
 All we want is some love. If you did not like this plugin or if it is buggy, please give us a shout and we will be happy to fix the issue/add the feature. If you indeed liked it, please leave a 5/5 rating.  
@@ -103,14 +103,14 @@ Eg code:
 
 
 == Screenshots ==
-1. Viral Downloader in Admin Panel Configuration General Settings.
-2. Viral Downloader in Admin Panel Configuration Download Logs Settings.
-3. Viral Downloader Post Type.
-4. Viral Downloader Add New Post.
-5. Viral Downloader Categories.
-6. Viral Downloader Tags.
-7. Viral Downloader Download & Share Logs.
-8. Viral Downloader End User View.
+1. Social Viral Downloader in Admin Panel Configuration General Settings.
+2. Social Viral Downloader in Admin Panel Configuration Download Logs Settings.
+3. Social Viral Downloader Post Type.
+4. Social Viral Downloader Add New Post.
+5. Social Viral Downloader Categories.
+6. Social Viral Downloader Tags.
+7. Social Viral Downloader Download & Share Logs.
+8. Social Viral Downloader End User View.
 
 == Changelog ==
 
@@ -164,6 +164,9 @@ Eg code:
 = 2.0.1 =
 * 'Bringing User Back To Top' issue is solved.
 
+= 2.0.2 =
+* "Generate" button has been modified to make it compatible with different themes.
+
 == Upgrade Notice ==
 
 = 1.0.1 =
@@ -210,4 +213,7 @@ Eg code:
 
 = 2.0.1 =
 * 'Bringing User Back To Top' issue is solved.
+
+= 2.0.2 =
+* "Generate" button has been modified to make it compatible with different themes.
 
